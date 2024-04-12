@@ -75,11 +75,10 @@ export default {
         })
         .then((js) => {
           this.pokemonData = js;
-          console.log(this.pokemonData);
           this.showImg = true;
           this.ok = true;
           this.pokemonNoEncontrado = false;
-          console.log(this.pokemonData+"ASd");
+          console.log(this.pokemonData);
         })
         .catch(error => {
           console.error('Error fetching data:', error);

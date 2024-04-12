@@ -1,5 +1,5 @@
 <template>
-    <div class="pokemonCard flexColumn center alignself-left verdanaFont" v-show="ok" id="datos">
+    <div v-if="pokemonData" class="pokemonCard flexColumn center alignself-left verdanaFont" v-show="ok" id="datos">
         <img v-if="favorite" class="margin05 alignself-right fav-img"
             @click="$emit('togglefav')" src="../assets/fav.png">
         <img v-else class="alignself-right fav-img" @click="$emit('togglefav')" src="../assets/no-fav.png">
@@ -18,22 +18,17 @@
         </div>
     </div>
 </template>
+
 <script>
 export default {
-    // Establece un nombre al componente. De lo contrario aparece como "Anónimo" en DevTools.
     name: "PokemonCard",
-    // Función que devuelve un  con las variables del componente Vue.
-    data() {
-        return {};
-    },
     props: {
-        pokemon_data: String, 
-        favorite: Boolean, 
-        img: String, 
-        info: Boolean, 
+        pokemonData: Object,
+        favorite: Boolean,
+        img: String,
+        info: Boolean,
         ok: Boolean
     },
-    // Lista de funciones (métodos) disponibles en el componente Vue.
     methods: {
         toggleFav() {
             this.$emit('togglefav');
@@ -41,8 +36,8 @@ export default {
     },
 };
 </script>
+
 <style>
-/* Estilos CSS */
 .pokemonCard {
     width: 9em;
     background-color: rgb(255, 219, 88); /* Amarillo claro */
@@ -51,5 +46,4 @@ export default {
     margin: 0.5em;
     padding: 0.5em;
 }
-
 </style>
